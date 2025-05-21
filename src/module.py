@@ -1,6 +1,9 @@
 from typing import List, Optional
 
 def count_excellent_students(scores: Optional[List[float]]) -> int:
+    """
+    Đếm số học sinh có điểm hợp lệ (0 <= điểm <= 10) và điểm >= 8.0
+    """
     if scores is None or len(scores) == 0:
         return 0
     count = 0
@@ -10,6 +13,10 @@ def count_excellent_students(scores: Optional[List[float]]) -> int:
     return count
 
 def calculate_valid_average(scores: Optional[List[float]]) -> float:
+    """
+    Tính trung bình các điểm hợp lệ (0 <= điểm <= 10)
+    Nếu không có điểm hợp lệ, trả về 0.0
+    """
     if scores is None or len(scores) == 0:
         return 0.0
     sum_valid = 0.0
