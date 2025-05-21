@@ -18,6 +18,8 @@
 - project_root/
   - src/
     - module.py          (chứa các hàm xử lý điểm)
+    - module1.py
+    - module2.py
   - test/
     - test_module.py     (chứa bộ test unittest)
   - README.md            (file mô tả dự án)
