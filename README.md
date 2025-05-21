@@ -15,12 +15,12 @@
 ---
 
 ## 📂 Cấu trúc thư mục
-project_root/
-├── src/
-│ └── module.py # chứa các hàm xử lý điểm
-├── test/
-│ └── test_module.py # chứa bộ test unittest
-└── README.md # file mô tả dự án
+- project_root/
+  - src/
+    - module.py          (chứa các hàm xử lý điểm)
+  - test/
+    - test_module.py     (chứa bộ test unittest)
+  - README.md            (file mô tả dự án)
 
 
 ---
