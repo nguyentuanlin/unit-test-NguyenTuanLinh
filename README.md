@@ -88,5 +88,38 @@ Kết quả hiển thị:
 - **Thêm một dòng trống** giữa các đoạn **text và code** để tránh bị dính dòng.
 
 ---
+🧪 Đo Độ Bao Phủ (Code Coverage)
+Để đảm bảo các kiểm thử của bạn bao phủ đủ phần mã nguồn, bạn có thể sử dụng công cụ coverage.py để đo độ bao phủ.
+
+1. Cài đặt coverage
+Bạn cài đặt coverage qua pip:
+
+bash
+Copy
+Edit
+pip install coverage
+2. Chạy kiểm thử và đo độ bao phủ
+Chạy kiểm thử cùng với đo độ bao phủ bằng lệnh:
+
+bash
+Copy
+Edit
+coverage run -m unittest discover -s test
+-m unittest discover -s test tự động tìm và chạy các file test trong thư mục test.
+
+3. Xem báo cáo độ bao phủ
+Sau khi chạy xong, bạn xem báo cáo độ bao phủ dưới dạng text:
+
+coverage report -m
+Trong đó, -m hiện chi tiết dòng code nào chưa được kiểm thử.
+
+kết quả kiểm thử 
+<img width="715" alt="Ảnh màn hình 2025-05-26 lúc 17 35 09" src="https://github.com/user-attachments/assets/26915e5e-23b0-459d-9488-80950445af3a" />
+
+pip install coverage
+coverage run -m unittest discover -s test
+coverage report -m
+coverage html
+open htmlcov/index.html  # macOS
 
 
