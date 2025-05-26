@@ -1,20 +1,39 @@
 # 🎓 Quản Lý Điểm Học Sinh
 
+Chào mừng bạn đến với dự án **Quản Lý Điểm Học Sinh** – một ứng dụng Python đơn giản nhưng mạnh mẽ giúp xử lý điểm số học sinh với các chức năng tự động và kiểm thử toàn diện!
+
+---
+
+## 📖 Giới thiệu
+
+Dự án này được thiết kế để hỗ trợ giáo viên hoặc quản lý điểm số học sinh một cách hiệu quả. Ứng dụng cung cấp hai chức năng chính:
+
+- ✅ Đếm số học sinh đạt loại Giỏi
+- ✅ Tính điểm trung bình hợp lệ (loại bỏ điểm không hợp lệ)
+
+---
+
 ## 📘 Mô tả bài toán
 
-Ứng dụng Python này hỗ trợ xử lý điểm số học sinh với 2 chức năng chính:
+Ứng dụng Python này thực hiện hai chức năng cốt lõi:
 
-- ✅ **Đếm số học sinh đạt loại Giỏi**  
-  Học sinh có điểm hợp lệ (0–10) và điểm ≥ 8.0 được tính là học sinh giỏi.
+### ✅ 1. Đếm số học sinh đạt loại Giỏi
 
-- ✅ **Tính điểm trung bình hợp lệ**  
-  Tính trung bình các điểm trong khoảng [0, 10]. Nếu không có điểm hợp lệ, trả về `0.0`.
+- Học sinh được xếp loại Giỏi nếu điểm số hợp lệ (0 ≤ điểm ≤ 10) và đạt ≥ 8.0.
+- Ví dụ: Điểm 9.5, 8.0 được tính; còn -1, 11 hoặc `None` sẽ bị bỏ qua.
 
-> ⚠️ Các điểm không hợp lệ (âm, >10, hoặc `None`) sẽ bị bỏ qua trong mọi tính toán.
+### ✅ 2. Tính điểm trung bình hợp lệ
+
+- Tính trung bình các điểm hợp lệ trong khoảng [0, 10].
+- Nếu không có điểm nào hợp lệ, trả về `0.0`.
+- Ví dụ: `(9.5, 8, 7, -1, 11)` → trung bình = `(9.5 + 8 + 7) / 3 = 8.17`
+
+> ⚠️ **Lưu ý:** Mọi điểm không hợp lệ (âm, lớn hơn 10, hoặc `None`) sẽ bị loại bỏ khỏi các phép tính.
 
 ---
 
 ## 📂 Cấu trúc thư mục
+
 - project_root/
   - src/
     - module.py          (chứa các hàm xử lý điểm)
@@ -25,45 +44,49 @@
   - README.md            (file mô tả dự án)
 
 
+### Mô tả ngắn gọn:
+
+- `src/module.py`: Chứa các hàm xử lý điểm.
+- `test/test_module.py`: Các kiểm thử đơn vị.
+- `README.md`: Tài liệu hướng dẫn sử dụng.
+
 ---
 
-## 🚀 Cách chạy chương trình
+## 🚀 Hướng dẫn cài đặt và chạy chương trình
 
 ### 1. Yêu cầu hệ thống
 
-- Python 3.6 trở lên
-- Đã cài đặt `unittest` (mặc định có sẵn trong Python)
+- Python 3.6 trở lên (khuyến nghị 3.9+)
+- `unittest` (có sẵn trong Python)
+- Hỗ trợ: Windows, macOS, Linux
 
-### 2. Chạy chương trình chính
+---
 
-```bash
-cd uni-test-NguyenTuanLinh
+### 2. Cài đặt và chạy chương trình chính
+
+git clone https://github.com/nguyentuanlin/unit-test-NguyenTuanLinh.git
+cd unit-test-NguyenTuanLinh
 python3 src/module.py
 
-Sau đó nhập danh sách điểm (cách nhau bằng dấu ,), ví dụ:
-(9.5,8,7,-1,11)
 
-3. Chạy bộ kiểm thử unittest
+Sau khi chạy, chương trình sẽ yêu cầu bạn nhập danh sách điểm, cách nhau bằng dấu phẩy.
 
-cd uni-test-NguyenTuanLinh
-python3 -m unittest -v test.test_module
+Ví dụ nhập:
 
-Nếu chạy thành công, bạn sẽ thấy kết quả:
-test_average_all_valid (test.test_module.TestScoreFunctions) ... ok
-test_excellent_all_valid (test.test_module.TestScoreFunctions) ... ok
-...
-----------------------------------------------------------------------
-Ran 14 tests in 0.002s
+                  9.5, 8, 7, -1, 11
 
-OK
+Kết quả hiển thị:
 
-🧪 Danh sách kiểm thử (test/test_module.py)
-Kiểm thử học sinh giỏi với tất cả điểm hợp lệ
+                  Số học sinh Giỏi: 2
+                 Điểm trung bình: 8.17
 
-Kiểm thử với điểm không hợp lệ (< 0, > 10, None)
 
-Kiểm thử với danh sách rỗng
+### 3. Chạy bộ kiểm thử đơn vị
 
-Kiểm thử với chỉ 1 điểm hợp lệ
+### 📌 Lưu ý quan trọng:
+- Luôn **bọc các đoạn lệnh/mã** trong khối ``` để đảm bảo hiển thị đúng (bắt đầu bằng ```bash hoặc ```python và kết thúc bằng ```).
+- **Thêm một dòng trống** giữa các đoạn **text và code** để tránh bị dính dòng.
 
-Kiểm thử tính trung bình với các tình huống khác nhau
+---
+
+
