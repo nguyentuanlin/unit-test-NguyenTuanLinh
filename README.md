@@ -116,10 +116,3 @@ Trong đó, -m hiện chi tiết dòng code nào chưa được kiểm thử.
 kết quả kiểm thử 
 <img width="715" alt="Ảnh màn hình 2025-05-26 lúc 17 35 09" src="https://github.com/user-attachments/assets/26915e5e-23b0-459d-9488-80950445af3a" />
 
-pip install coverage
-coverage run -m unittest discover -s test
-coverage report -m
-coverage html
-open htmlcov/index.html  # macOS
-
-
