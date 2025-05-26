@@ -29,20 +29,20 @@ def calculate_valid_average(scores: Optional[List[float]]) -> float:
         return 0.0
     return sum_valid / count_valid
 
-if __name__ == "__main__":
-    # Nhập dữ liệu từ người dùng
+def main():
     input_str = input("Nhập danh sách điểm cách nhau bởi dấu phẩy (ví dụ: 9.5,8,7,-1,11): ")
-    
-    # Chuyển chuỗi thành danh sách float
+
     try:
         test_scores = [float(x.strip()) for x in input_str.split(",") if x.strip() != '']
     except ValueError:
         print("Lỗi: Vui lòng chỉ nhập số thực cách nhau bởi dấu phẩy.")
-        exit()
+        return
 
-    # Tính và in kết quả
     excellent_count = count_excellent_students(test_scores)
     avg_score = calculate_valid_average(test_scores)
 
     print(f"Số học sinh đạt loại Giỏi (>=8.0): {excellent_count}")
     print(f"Điểm trung bình hợp lệ (0-10): {avg_score:.2f}")
+
+if __name__ == "__main__":
+    main()
