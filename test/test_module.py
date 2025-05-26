@@ -1,11 +1,13 @@
 import sys
 import os
 import unittest
+from unittest.mock import patch
+from io import StringIO
 
-# Thêm thư mục src vào sys.path để import module.py được
+# Thêm src vào sys.path để import module
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 
-from module import count_excellent_students, calculate_valid_average
+from module import count_excellent_students, calculate_valid_average, main
 
 class TestScoreFunctions(unittest.TestCase):
     def test_excellent_all_valid(self):
@@ -50,5 +52,21 @@ class TestScoreFunctions(unittest.TestCase):
     def test_average_with_none_values_inside(self):
         self.assertAlmostEqual(calculate_valid_average([9.0, None, 6.0]), 7.5)
 
+class TestMainFunction(unittest.TestCase):
+    @patch('builtins.input', return_value='9.5,8,7,-1,11')
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_main_valid_input(self, mock_stdout, mock_input):
+        main()
+        output = mock_stdout.getvalue()
+        self.assertIn("Số học sinh đạt loại Giỏi (>=8.0): 2", output)
+        self.assertIn("Điểm trung bình hợp lệ (0-10): 8.17", output)
+
+    @patch('builtins.input', return_value='abc, 8, 9')
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_main_invalid_input(self, mock_stdout, mock_input):
+        main()
+        output = mock_stdout.getvalue()
+        self.assertIn("Lỗi: Vui lòng chỉ nhập số thực cách nhau bởi dấu phẩy.", output)
+
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main()  # pragma: no cover
